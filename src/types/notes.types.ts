@@ -1,7 +1,10 @@
+import NoteDTO from "../dto/note.dto";
+import { ICategory } from "../store/reducers/note.reducer";
+
 export interface INote {
   createdAt: string;
   name: string;
-  dates: string[];
+  dates: string;
   content: string;
   category: string;
   id: string;
@@ -13,36 +16,36 @@ export enum NotesActionTypes {
   DeleteNoteAction = "DeleteNote",
   ArchieveNoteAction = "ArchieveNote",
   ChangeVisionAction = "ChangeVision",
+  SetNotesAction = "SetNotes",
 }
 export interface INoteState {
-  notes: INote[];
+  notes: NoteDTO[];
   showAcive: boolean;
   total: {
-    arch: {
-      task: number;
-      idea: number;
-      quote: number;
-      random: number;
-    };
-    active: { task: number; idea: number; quote: number; random: number };
+    arch: ICategory
+    active: ICategory
   };
 }
 export type INoteAction =
   | DeleteNotesAction
   | EditNotesAction
   | ArchieveNotesAction
-  | ChangeVisionAction;
-
+  | ChangeVisionAction
+  | SetNotesAction;
+interface SetNotesAction {
+  type: NotesActionTypes.SetNotesAction;
+  payload: NoteDTO[];
+}
 interface ChangeVisionAction {
   type: NotesActionTypes.ChangeVisionAction;
 }
 interface DeleteNotesAction {
   type: NotesActionTypes.DeleteNoteAction;
-  payload: { id: string };
+  payload: NoteDTO;
 }
 interface EditNotesAction {
   type: NotesActionTypes.EditNoteAction;
-  payload: INote;
+  payload: NoteDTO;
 }
 interface ArchieveNotesAction {
   type: NotesActionTypes.ArchieveNoteAction;

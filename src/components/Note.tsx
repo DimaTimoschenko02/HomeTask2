@@ -2,8 +2,9 @@ import React, { FC } from "react";
 import { INote } from "../types/notes.types";
 import styled from 'styled-components'
 import NoteManageButtons from "./NoteManageButtons";
+import NoteDTO from "../dto/note.dto";
 interface INoteProps{
-    note:INote
+    note:NoteDTO
 }
 const Note = ({note}:INoteProps) =>{
     return(

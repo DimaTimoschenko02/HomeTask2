@@ -1,14 +1,17 @@
 import React from "react";
-import {AiFillDelete} from 'react-icons/ai'
-interface IDeleteProps{
-    id:string
+import { AiFillDelete } from "react-icons/ai";
+import NoteDTO from "../../dto/note.dto";
+import { useActions } from "../../hooks/useActions";
+interface IDeleteProps {
+  note: NoteDTO;
 }
-const DeleteBtn = ({id}:IDeleteProps) =>{
-    return (
-        <div>
-            <AiFillDelete/>
-        </div>
-    )
-}
+const DeleteBtn = ({ note }: IDeleteProps) => {
+  const { deleteNote } = useActions();
+  return (
+    <div>
+      <AiFillDelete onClick={() => deleteNote(note)} />
+    </div>
+  );
+};
 
-export default DeleteBtn
+export default DeleteBtn;

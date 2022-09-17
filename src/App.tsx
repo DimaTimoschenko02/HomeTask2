@@ -11,8 +11,11 @@ import { INoteAction } from "./types/notes.types";
 
 function App() {
   //const dispatch = useDispatch<any>()
-  const {showAcive} = useTypedSelector(state => state)
-  const {changeVisibility} = useActions()
+  const {changeVisibility , setNotes} = useActions()
+  const {showAcive } = useTypedSelector(state => state)
+  useEffect(() =>{
+    setNotes()
+},[])
   return <div className="App">
   {
     showAcive?<NoteList/>:<ArchNoteList/>

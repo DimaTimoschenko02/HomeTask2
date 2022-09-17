@@ -5,7 +5,7 @@ export default [
       createdAt: "11.02.2011",
       category: "task",
       content: "content",
-      dates: ["01.09.2033"],
+      dates:'',
       archieved:false
     },
     {
@@ -13,9 +13,9 @@ export default [
       id:"6",
       name: "Vova",
       createdAt: "01.01.2001",
-      category: "randomThought",
+      category: "random",
       content: "Lolopol",
-      dates: ["01.09.2033"],
+      dates:'',
       archieved:false,
     },
     {
@@ -25,7 +25,7 @@ export default [
       createdAt: "11.11.2111",
       category: "idea",
       content: "play clah royale",
-      dates: ["01.09.2033"],
+      dates: '',
       archieved:false,
     },
     {
@@ -34,7 +34,7 @@ export default [
       createdAt: "21.21.2121",
       category: "quote",
       content: "do nothing",
-      dates: ["01.09.2033"],
+      dates: '',
       archieved:false,
     },
     {
@@ -43,7 +43,7 @@ export default [
       createdAt: "21.21.2121",
       category: "task",
       content: "None",
-      dates: ["01.09.2033"],
+      dates: '',
       archieved:true,
     },
     {
@@ -52,7 +52,7 @@ export default [
       createdAt: "21.21.2121",
       category: "task",
       content: "do smth",
-      dates: ["01.09.2033"],
+      dates: '',
       archieved:false,
     },
     {
@@ -61,7 +61,7 @@ export default [
       createdAt: "21.21.2121",
       category: "idea",
       content: "wake up",
-      dates: ["01.09.2033"],
+      dates: '',
       archieved:true,
     },
   ];
