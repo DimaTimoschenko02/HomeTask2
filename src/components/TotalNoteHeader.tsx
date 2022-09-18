@@ -1,5 +1,3 @@
-import { AiFillDelete } from "react-icons/ai";
-import { IoMdArchive } from "react-icons/io";
 import styled from "styled-components";
 
 const SummaryTableHeader = () => {
@@ -14,7 +12,6 @@ const SummaryTableHeader = () => {
       <div>
         <h4>Archieve</h4>
       </div>
-      
     </Header>
   );
 };
@@ -24,18 +21,17 @@ const Header = styled.div`
   background-color: #747474;
   display: flex;
   flex-direction: row;
-  height:35px;
-  margin-bottom:10px;
+  height: 35px;
+  margin-bottom: 10px;
   div {
     justify-content: flex-start;
     display: flex;
     align-items: center;
     align-content: space-around;
-    padding-left:10px;
-    
+    padding-left: 10px;
+
     width: 33%;
   }
-  
 `;
 
 export default SummaryTableHeader;

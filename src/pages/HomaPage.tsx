@@ -1,23 +1,15 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import ArchNoteList from "../components/ArchNoteList";
 import NoteList from "../components/NoteList";
 import TotalNotes from "../components/TotalNotes";
-import { useActions } from "../hooks/useActions";
 import { useTypedSelector } from "../hooks/useTypeSelector";
-import { NavigateOptions } from "react-router-dom";
 import TableHeader from "../components/TableHeader";
 import styled from "styled-components";
 import SummaryTableHeader from "../components/TotalNoteHeader";
 import ShowArchBtn from "../components/ui/ShowArchBtn";
 import CreateNoteBtn from "../components/ui/CreateNoteBtn";
 const HomePage = () => {
-  const { changeVisibility, setNotes } = useActions();
-  const { showActive, notes } = useTypedSelector((state) => state);
-  const navigate = useNavigate();
-  // useEffect(() => {
-  //   setNotes();
-  // }, []);
+  const { showActive } = useTypedSelector((state) => state);
+
   return (
     <Container>
       <div className="notes">
@@ -25,14 +17,13 @@ const HomePage = () => {
         {showActive ? <NoteList /> : <ArchNoteList />}
       </div>
       <div className="btns">
-        <ShowArchBtn/>
-        <CreateNoteBtn/>
+        <ShowArchBtn />
+        <CreateNoteBtn />
       </div>
       <div className="total-notes">
-        <SummaryTableHeader/>
+        <SummaryTableHeader />
         <TotalNotes />
       </div>
-      {/* TODO:move to UI */}
     </Container>
   );
 };
@@ -47,13 +38,13 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: center;
   }
-  .btns{
-    height:10%;
+  .btns {
+    height: 10%;
     display: flex;
     align-content: center;
     flex-direction: row;
     justify-content: space-between;
-    align-items:center;
+    align-items: center;
   }
   .total-notes {
     height: 40%;

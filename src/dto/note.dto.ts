@@ -14,7 +14,7 @@ export default class NoteDTO {
     this.content = note.content;
     this.category = note.category;
     this.archieved = note.archieved;
-    this.createdAt = note.createdAt? note.createdAt: this.setCreateTime()
+    this.createdAt = note.createdAt ? note.createdAt : this.setCreateTime();
     this.dates = this.getDates(note.content);
   }
   getDates(str: string) {
@@ -31,7 +31,6 @@ export default class NoteDTO {
     const date = new Date();
     let fullDate =
       date.getUTCMonth() + "/" + date.getUTCDay() + "/" + date.getUTCFullYear();
-      return fullDate
+    return fullDate;
   }
-  
 }

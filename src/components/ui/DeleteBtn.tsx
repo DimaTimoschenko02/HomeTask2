@@ -9,7 +9,7 @@ interface IDeleteProps {
 }
 const DeleteBtn = ({ note }: IDeleteProps) => {
   const { deleteNote } = useActions();
-  const { notes } = useTypedSelector((state) => state);
+
   return (
     <ManageBtn>
       <AiFillDelete

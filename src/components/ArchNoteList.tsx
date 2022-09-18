@@ -1,5 +1,4 @@
-import React, { FC } from "react";
-import { useSelector } from "react-redux";
+import { FC } from "react";
 import styled from "styled-components";
 import { useTypedSelector } from "../hooks/useTypeSelector";
 import Note from "./Note";

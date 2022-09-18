@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { INote } from "../types/notes.types";
 import styled from "styled-components";
 import NoteManageButtons from "./NoteManageButtons";
 import NoteDTO from "../dto/note.dto";
@@ -36,25 +35,22 @@ const Note = ({ note }: INoteProps) => {
 };
 
 const Container = styled.div`
-  
-  margin-bottom:10px;
+  margin-bottom: 10px;
   display: flex;
   align-items: flex-start;
   flex-direction: row;
   background-color: #c3ceefc8;
-  //border: 2px, solid  #9cb0ec;
   justify-content: space-between;
   div {
     justify-content: flex-start;
     display: flex;
     align-items: center;
     align-content: space-around;
-    padding-left:10px;
-    
+    padding-left: 10px;
+
     width: 20%;
   }
-  .buttons{
-    
+  .buttons {
     justify-content: center;
   }
 `;

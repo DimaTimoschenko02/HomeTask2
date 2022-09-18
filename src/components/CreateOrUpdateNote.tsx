@@ -1,11 +1,8 @@
-import React, { FC, useContext } from "react";
-import { Formik, Field } from "formik";
+import { Formik } from "formik";
 
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useActions } from "../hooks/useActions";
-import Note from "./Note";
-import { INote } from "../types/notes.types";
 import NoteDTO from "../dto/note.dto";
 import { noteSchema } from "../schemas/note";
 import { useTypedSelector } from "../hooks/useTypeSelector";
@@ -42,7 +39,7 @@ export default function CreateUpdateForm() {
               category: values.category,
               content: values.content,
             });
-            console.log(edited);
+
             editNote(edited);
           } else {
             const { name, category, content } = values;
@@ -58,7 +55,6 @@ export default function CreateUpdateForm() {
             createNote(newNote);
           }
           navigate("/");
-          console.log(notes);
         }}
         render={({
           errors,
@@ -139,7 +135,7 @@ const Select = styled.select`
   height: 35px;
   border: 1px solid #ccc;
   background-color: #fff;
-`
+`;
 const Label = styled.label`
   display: flex;
   flex-direction: column;

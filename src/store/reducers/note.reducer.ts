@@ -48,13 +48,7 @@ export const noteReducer = (
           state.notes[i] = action.payload;
         }
       }
-      //I DONT KNOW WHY it DOESNT WORKS
-      // state.notes.forEach((el) => {
-      //   if (el.id === action.payload.id) {
-      //     el = action.payload;
-      //
-      //   }
-      // });
+
       return {
         ...state,
       };

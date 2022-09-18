@@ -34,7 +34,7 @@ export type INoteAction =
   | ChangeVisionAction
   | SetNotesAction
   | CreateNoteAction;
-  
+
 interface SetNotesAction {
   type: NotesActionTypes.SetNotesAction;
   payload: NoteDTO[];

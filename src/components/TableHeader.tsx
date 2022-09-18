@@ -35,19 +35,18 @@ const Header = styled.div`
   background-color: #747474;
   display: flex;
   flex-direction: row;
-  height:35px;
-  margin-bottom:10px;
+  height: 35px;
+  margin-bottom: 10px;
   div {
     justify-content: flex-start;
     display: flex;
     align-items: center;
     align-content: space-around;
-    padding-left:10px;
-    
+    padding-left: 10px;
+
     width: 20%;
   }
-  .buttons{
-    
+  .buttons {
     justify-content: center;
   }
 `;
