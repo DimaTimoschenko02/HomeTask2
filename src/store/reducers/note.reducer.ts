@@ -34,11 +34,27 @@ export const noteReducer = (
 ): INoteState => {
   switch (action.type) {
     case NotesActionTypes.EditNoteAction:
-      state.notes.forEach((el) => {
-        if ((el.id = action.payload.id)) {
-          el = action.payload;
+      for (let i = 0; i < state.notes.length; i++) {
+        if (state.notes[i].id === action.payload.id) {
+          if (state.notes[i].category !== action.payload.category) {
+            if (action.payload.archieved) {
+              state.total.arch[state.notes[i].category]--;
+              state.total.arch[action.payload.category]++;
+            } else {
+              state.total.active[state.notes[i].category]--;
+              state.total.active[action.payload.category]++;
+            }
+          }
+          state.notes[i] = action.payload;
         }
-      });
+      }
+      //I DONT KNOW WHY it DOESNT WORKS
+      // state.notes.forEach((el) => {
+      //   if (el.id === action.payload.id) {
+      //     el = action.payload;
+      //
+      //   }
+      // });
       return {
         ...state,
       };
@@ -49,7 +65,6 @@ export const noteReducer = (
         state.total.active[action.payload.category]--;
       }
       state.notes = state.notes.filter((el) => el.id !== action.payload.id);
-      ///console.log(state.notes, action.payload.id);
       return { ...state };
 
     case NotesActionTypes.ArchieveNoteAction:
@@ -94,6 +109,11 @@ export const noteReducer = (
         }
       });
       return { ...state, notes: action.payload, total: obj };
+    case NotesActionTypes.CreateNoteAction:
+      state.notes.push(action.payload);
+
+      state.total.active[action.payload.category]++;
+      return { ...state };
     default:
       return initialState;
   }

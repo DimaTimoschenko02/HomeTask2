@@ -24,7 +24,7 @@ export default [
       name: "Kto to",
       createdAt: "11.11.2111",
       category: "idea",
-      content: "play clah royale",
+      content: "play clah royale until 29-02-2082",
       dates: '',
       archieved:false,
     },

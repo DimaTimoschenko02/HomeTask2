@@ -1,5 +1,5 @@
 import { Dispatch } from "redux"
-import { INote, INoteAction, NotesActionTypes } from "../../types/notes.types"
+import { INote, INoteAction, INoteState, NotesActionTypes } from "../../types/notes.types"
 import notes from '../../notes.data'
 import NoteDTO from "../../dto/note.dto"
 
@@ -25,5 +25,16 @@ export const setNotes = () =>{
 export const deleteNote =(note:NoteDTO) =>{
     return (dispatch:Dispatch<INoteAction>) =>{
         dispatch({type:NotesActionTypes.DeleteNoteAction , payload:note})
+    }
+}
+
+export const editNote = (note:NoteDTO) =>{
+    return(dispatch:Dispatch<INoteAction>) =>{
+        dispatch({type:NotesActionTypes.EditNoteAction , payload:note})
+    }
+}
+export const createNote = (note:NoteDTO) =>{
+    return(dispatch:Dispatch<INoteAction>) =>{
+        dispatch({type:NotesActionTypes.CreateNoteAction,payload:note})
     }
 }

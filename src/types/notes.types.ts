@@ -17,13 +17,14 @@ export enum NotesActionTypes {
   ArchieveNoteAction = "ArchieveNote",
   ChangeVisionAction = "ChangeVision",
   SetNotesAction = "SetNotes",
+  CreateNoteAction = "CreateNote",
 }
 export interface INoteState {
   notes: NoteDTO[];
   showAcive: boolean;
   total: {
-    arch: ICategory
-    active: ICategory
+    arch: ICategory;
+    active: ICategory;
   };
 }
 export type INoteAction =
@@ -31,10 +32,16 @@ export type INoteAction =
   | EditNotesAction
   | ArchieveNotesAction
   | ChangeVisionAction
-  | SetNotesAction;
+  | SetNotesAction
+  | CreateNoteAction;
+  
 interface SetNotesAction {
   type: NotesActionTypes.SetNotesAction;
   payload: NoteDTO[];
+}
+interface CreateNoteAction {
+  type: NotesActionTypes.CreateNoteAction;
+  payload: NoteDTO;
 }
 interface ChangeVisionAction {
   type: NotesActionTypes.ChangeVisionAction;
