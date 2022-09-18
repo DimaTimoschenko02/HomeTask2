@@ -6,25 +6,49 @@ const TotalNotes = () => {
   const { arch, active } = total;
   return (
     <Container>
-        
-      <div>
-        <p>Random Thougth</p>
-        <p>{active.random}</p>
-        <p>{arch.random}</p>
+      <div className="row">
+        <div>
+          <h5>Random Thougth</h5>
+        </div>
+        <div>
+          <p>{active.random}</p>
+        </div>
+        <div>
+          <p>{arch.random}</p>
+        </div>
       </div>
-      <div>
-        <p>Idea</p> <p>{active.idea}</p>
-        <p>{arch.idea}</p>
+      <div className="row">
+        <div>
+          <h5>Idea</h5>
+        </div>{" "}
+        <div>
+          <p>{active.idea}</p>
+        </div>
+        <div>
+          <p>{arch.idea}</p>
+        </div>
       </div>
-      <div>
-        <p>Task</p>
-        <p>{active.task}</p>
-        <p>{arch.task}</p>
+      <div className="row">
+        <div>
+          <h5>Task</h5>
+        </div>
+        <div>
+          <p>{active.task}</p>
+        </div>
+        <div>
+          <p>{arch.task}</p>
+        </div>
       </div>
-      <div>
-        <p>Quote</p>
-        <p>{active.quote}</p>
-        <p>{arch.quote}</p>
+      <div className="row">
+        <div>
+          <h5>Quote</h5>
+        </div>
+        <div>
+          <p>{active.quote}</p>
+        </div>
+        <div>
+          <p>{arch.quote}</p>
+        </div>
       </div>
     </Container>
   );
@@ -33,13 +57,23 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  div {
+
+  .row {
+    margin-bottom: 5px;
+    background-color: #c3ceefc8;
+    height: 35px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    div {
+      justify-content: flex-start;
+      display: flex;
+      align-items: center;
+      align-content: space-around;
+      padding-left: 10px;
+      width: 33%;
+    }
   }
 `;
-const Header = styled.div`
-    
-`
+
 export default TotalNotes;

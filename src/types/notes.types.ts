@@ -21,7 +21,7 @@ export enum NotesActionTypes {
 }
 export interface INoteState {
   notes: NoteDTO[];
-  showAcive: boolean;
+  showActive: boolean;
   total: {
     arch: ICategory;
     active: ICategory;

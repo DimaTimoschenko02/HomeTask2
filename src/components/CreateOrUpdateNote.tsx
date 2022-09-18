@@ -9,6 +9,7 @@ import { INote } from "../types/notes.types";
 import NoteDTO from "../dto/note.dto";
 import { noteSchema } from "../schemas/note";
 import { useTypedSelector } from "../hooks/useTypeSelector";
+
 interface initValues {
   name: string;
   content: string;
@@ -17,7 +18,7 @@ interface initValues {
 export default function CreateUpdateForm() {
   const navigate = useNavigate();
   const { state } = useLocation();
-  const {notes} = useTypedSelector((state) => state);
+  const { notes } = useTypedSelector((state) => state);
   const { editNote, createNote } = useActions();
   const createNoteValues: initValues = { name: "", category: "", content: "" };
   const editNoteValues: initValues = {
@@ -26,14 +27,14 @@ export default function CreateUpdateForm() {
     content: state?.note.content,
   };
   return (
-    <div>
+    <Container>
       <Title>Form</Title>
       <Formik
         initialValues={state ? editNoteValues : createNoteValues}
         validationSchema={noteSchema}
         onSubmit={(values) => {
           if (state) {
-            const {note} = state
+            const { note } = state;
 
             const edited = new NoteDTO({
               ...note,
@@ -41,7 +42,7 @@ export default function CreateUpdateForm() {
               category: values.category,
               content: values.content,
             });
-            console.log(edited)
+            console.log(edited);
             editNote(edited);
           } else {
             const { name, category, content } = values;
@@ -57,7 +58,7 @@ export default function CreateUpdateForm() {
             createNote(newNote);
           }
           navigate("/");
-          console.log(notes)
+          console.log(notes);
         }}
         render={({
           errors,
@@ -66,10 +67,12 @@ export default function CreateUpdateForm() {
           handleBlur,
           handleSubmit,
         }) => (
-          <Form onSubmit={e => {
-            e.preventDefault()
-            handleSubmit(e)
-          }}>
+          <Form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSubmit(e);
+            }}
+          >
             <Label>
               Name{errors.name && <Text color="red">{errors.name}</Text>}
               <Input
@@ -94,7 +97,7 @@ export default function CreateUpdateForm() {
               />
             </Label>
             <Label>
-              <select
+              <Select
                 name="category"
                 value={values.category}
                 onChange={handleChange}
@@ -116,16 +119,27 @@ export default function CreateUpdateForm() {
                 <option value="idea" label="idea">
                   idea
                 </option>
-              </select>
+              </Select>
             </Label>
             <Button type="submit">Submit</Button>
           </Form>
         )}
       />
-    </div>
+    </Container>
   );
 }
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
+const Select = styled.select`
+  width: 300px;
+  height: 35px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+`
 const Label = styled.label`
   display: flex;
   flex-direction: column;

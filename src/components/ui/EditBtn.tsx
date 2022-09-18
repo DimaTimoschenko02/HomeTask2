@@ -3,6 +3,7 @@ import {MdModeEditOutline} from 'react-icons/md'
 import { useNavigate } from "react-router-dom";
 import NoteDTO from "../../dto/note.dto";
 import { INote } from "../../types/notes.types";
+import { ManageBtn } from "./ArchieveBtn";
 
 interface IEditProps{
     note:NoteDTO
@@ -10,9 +11,9 @@ interface IEditProps{
 const EditBtn = ({note}:IEditProps) =>{
     const navigate = useNavigate()
     return (
-        <div>
+        <ManageBtn>
             <MdModeEditOutline onClick={() => navigate('/note' , {state:{note}})}/>
-        </div>
+        </ManageBtn>
     )
 }
 

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { useActions } from "../hooks/useActions";
 import { useTypedSelector } from "../hooks/useTypeSelector";
+import { Container } from "./ArchNoteList";
 import Note from "./Note";
 
 const NoteList:FC = () =>{
@@ -16,11 +17,6 @@ const NoteList:FC = () =>{
         </Container>
     )
 }
-const Container = styled.div`
-    display:flex;
-    flex-direction:column;
-`
-const Header =  styled.div`
-    
-`
+
+
 export default NoteList

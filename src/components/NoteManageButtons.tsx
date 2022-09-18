@@ -12,7 +12,7 @@ interface IManageProps{
 const NoteManageButtons = ({note}:IManageProps) =>{
     return(
         <Container>
-            <EditBtn note={note}/>
+            <EditBtn note={note} />
             <ArchieveBtn  id={note.id}/>
             <DeleteBtn  note={note}/>
         </Container>
@@ -22,5 +22,6 @@ const Container = styled.div`
     display:flex;
     flex-direction:row;
     justify-content:space-around;
+    
 `
 export default NoteManageButtons

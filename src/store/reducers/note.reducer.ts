@@ -16,7 +16,7 @@ export interface ICategory extends IOjbectKeys {
 }
 const initialState: INoteState = {
   notes: [],
-  showAcive: true,
+  showActive: true,
   total: {
     arch: { idea: 0, task: 0, random: 0, quote: 0 },
     active: {
@@ -86,7 +86,7 @@ export const noteReducer = (
     case NotesActionTypes.ChangeVisionAction:
       return {
         ...state,
-        showAcive: !state.showAcive,
+        showActive: !state.showActive,
       };
     case NotesActionTypes.SetNotesAction:
       const obj: {

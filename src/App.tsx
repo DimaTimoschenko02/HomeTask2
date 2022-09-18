@@ -10,21 +10,22 @@ import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import { INoteAction } from "./types/notes.types";
 import HomePage from "./pages/HomaPage";
 import CreateUpdatePage from "./pages/CreateUpdatePage";
-
+import "./App.css";
 function App() {
-  const {setNotes} = useActions()
-  useEffect(() =>{
-    setNotes()
-  })
-  return(
-    <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/note" element={<CreateUpdatePage />} />
-    </Routes>
-  </BrowserRouter>
-  )
- 
+  const { setNotes } = useActions();
+  useEffect(() => {
+    setNotes();
+  });
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/note" element={<CreateUpdatePage />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;
